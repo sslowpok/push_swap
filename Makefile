@@ -6,26 +6,25 @@ CFLAGS =	-Wall -Werror -Wextra
 RM =	rm -rf
 
 SRCS =	main.c \
-
-INC =	libft/libft.h \
-		printf/printf.h \
-		push_swap.h
+		validation.c
 
 LD_FLAGS =	-L libft -L printf
 
 OBJS =	$(SRCS:.c=.o)
 
+INC =	push_swap.h ./libft/libft.h ./printf/ft_printf.h
+
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) ./libft/*.c ./printf/*.c
 			make -C ./libft
 			make bonus -C ./libft
 			make -C ./printf
 			$(CC) $(CFLAGS) $(OBJS) $(LD_FLAGS) ./libft/libft.a ./printf/libftprintf.a -o $(NAME)
 
-%.o:	%.c $(INC)
+%.o:	%.c */*.h push_swap.h
 		$(CC) $(CFLAGS)  -c $< -o $@
 
 clean:	
