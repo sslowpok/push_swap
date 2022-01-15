@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:03:37 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 16:00:37 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:19:58 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(void)
 {
 	ft_printf("Error. Stop\n");
-	exit (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 static void	ft_check_arg(char *str)

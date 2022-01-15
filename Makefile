@@ -7,7 +7,12 @@ RM =	rm -rf
 
 SRCS =	main.c \
 		input_check.c \
-		utils.c
+		utils.c \
+		swap.c \
+		push.c \
+		rotate.c \
+		reverse_rotate.c \
+		
 
 LD_FLAGS =	-L libft -L printf
 

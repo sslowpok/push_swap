@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 15:43:52 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:21:03 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,27 @@ long long int	ft_atoi_long(const char	*nptr)
 	return (res * sign);
 }
 
-void	ft_print_a(t_list *stack_a)
+void	ft_print(t_list *stack)
 {
-	while (stack_a)
+	while (stack)
 	{
-		ft_printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
+		ft_printf("%d\n", stack->content);
+		stack = stack->next;
 	}
+}
+
+int	ft_issorted(t_list **stack)
+{
+	int		size;
+	t_list	*temp;
+
+	temp = (*stack)->next;
+	size = ft_lstsize(temp);
+	while (temp->next)
+	{
+		if (temp->content > temp->next->content)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }
