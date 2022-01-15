@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:19:12 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:41:34 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ void			ft_rrb(t_list **stack_b, int flag);
 void			ft_rrr(t_list **stack_a, t_list **stack_b);
 void			ft_error(void);
 int				ft_issorted(t_list **stack);
+int				ft_max(t_list **stack);
+int				ft_min(t_list **stack);
 
 #endif

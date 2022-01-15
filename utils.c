@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:21:03 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:41:06 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,38 @@ int	ft_issorted(t_list **stack)
 			return (1);
 		temp = temp->next;
 	}
+	ft_printf("not sorted\n");
 	return (0);
+}
+
+int	ft_max(t_list **stack)
+{
+	int	max;
+
+	if (!*stack)
+		return (0);
+	max = (*stack)->content;
+	while (*stack)
+	{
+		if ((*stack)->content > max)
+			max = (*stack)->content;
+		(*stack) = (*stack)->next;
+	}
+	return (max);
+}
+
+int	ft_min(t_list **stack)
+{
+	int	min;
+
+	if (!*stack)
+		return (0);
+	min = (*stack)->content;
+	while (*stack)
+	{
+		if ((*stack)->content > min)
+			min = (*stack)->content;
+		(*stack) = (*stack)->next;
+	}
+	return (min);
 }

@@ -12,7 +12,7 @@ SRCS =	main.c \
 		push.c \
 		rotate.c \
 		reverse_rotate.c \
-		
+		mini_sort.c \
 
 LD_FLAGS =	-L libft -L printf
 
