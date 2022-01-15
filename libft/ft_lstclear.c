@@ -6,13 +6,13 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:57:05 by sslowpok          #+#    #+#             */
-/*   Updated: 2021/10/17 15:03:49 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:03:02 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*ptr;
 

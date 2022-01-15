@@ -6,7 +6,8 @@ CFLAGS =	-Wall -Werror -Wextra
 RM =	rm -rf
 
 SRCS =	main.c \
-		validation.c
+		input_check.c \
+		utils.c
 
 LD_FLAGS =	-L libft -L printf
 
@@ -19,22 +20,22 @@ INC =	push_swap.h ./libft/libft.h ./printf/ft_printf.h
 all: $(NAME)
 
 $(NAME): $(OBJS) ./libft/*.c ./printf/*.c
-			make -C ./libft
-			make bonus -C ./libft
-			make -C ./printf
-			$(CC) $(CFLAGS) $(OBJS) $(LD_FLAGS) ./libft/libft.a ./printf/libftprintf.a -o $(NAME)
+			@make -C ./libft
+			@make bonus -C ./libft
+			@make -C ./printf
+			@$(CC) $(CFLAGS) $(OBJS) $(LD_FLAGS) ./libft/libft.a ./printf/libftprintf.a -o $(NAME)
 
 %.o:	%.c */*.h push_swap.h
 		$(CC) $(CFLAGS)  -c $< -o $@
 
 clean:	
 		$(RM) $(OBJS)
-		make clean -C libft/
-		make clean -C printf/
+		@make clean -C libft/
+		@make clean -C printf/
 	
 fclean:	clean
 		$(RM) $(NAME)
-		make fclean -C libft/
-		make fclean -C printf/
+		@make fclean -C libft/
+		@make fclean -C printf/
 
 re:		fclean all

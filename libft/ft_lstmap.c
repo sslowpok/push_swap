@@ -6,13 +6,13 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:11:21 by sslowpok          #+#    #+#             */
-/*   Updated: 2021/10/17 15:31:44 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:10:50 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 {
 	t_list	*out;
 	t_list	*current;

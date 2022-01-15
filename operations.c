@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:03:37 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/13 16:15:38 by sslowpok         ###   ########.fr       */
+/*   Created: 2022/01/15 15:32:56 by sslowpok          #+#    #+#             */
+/*   Updated: 2022/01/15 15:39:10 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_arg(t_list *stack_a, int argc, char **argv)
+void	ft_sa(t_list *stack_a)
 {
-	int	i;
-	int	arg;
+	int	temp;
 
-	i = 1;
-	while (i < argc)
-	{
-		if (ft_strncmp(argv[i], "0", ft_strlen(argv[i])) != 0)
-			if (ft_atoi(argv[i]) == 0)
-			{
-				ft_printf("%s is an invalid argument. stop\n", argv[i]);
-				exit (1);
-			}
-		// нужен атои лонг
-		arg = ft_atoi(argv[i++]);
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i++])));
-		stack_a = stack_a->next;
-	}
+	temp = stack_a->content;
+	stack_a->content = stack_a->next->content;
+	stack_a->next->content = temp;
 }

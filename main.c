@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/13 16:16:14 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/15 15:54:43 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_init_stacks(t_list *stack_a, t_list *stack_b)
 	stack_b->next = NULL;
 }
 
-int	main(int __unused argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -41,15 +41,12 @@ int	main(int __unused argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	ft_init_stacks(stack_a, stack_b);
-	ft_check_arg(stack_a, argc, argv);
-	// while (i < argc)
-	// {
-	// 	// валидация аргов + запись в stack_a
-	// 	i++;
-	// }
-	// определение размера а
-	// если размер для минисорта - минисорт
-	// while (argv[i])
-	// 	ft_printf("%s\n", argv[i++]);
+	ft_validation(argc, argv);
+	while (i < argc)
+		ft_stack_fill(argv[i++], &stack_a);
+
+	
+	// проверка на сортед
+	ft_print_a(stack_a);
 	return (0);
 }
