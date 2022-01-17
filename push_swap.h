@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:41:34 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:59:16 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void			ft_rra(t_list **stack_a, int flag);
 void			ft_rrb(t_list **stack_b, int flag);
 void			ft_rrr(t_list **stack_a, t_list **stack_b);
 void			ft_error(void);
-int				ft_issorted(t_list **stack);
-int				ft_max(t_list **stack);
-int				ft_min(t_list **stack);
+int				ft_issorted(t_list *stack);
+int				ft_max(t_list *stack);
+int				ft_min(t_list *stack);
+void			ft_minisort(t_list **stack_a, t_list **stack_b, int size);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:35:01 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/17 18:04:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ int	main(int argc, char **argv)
 	ft_validation(argc, argv);
 	while (i < argc)
 		ft_stack_fill(argv[i++], &stack_a);
-	if (ft_issorted(&stack_a) != 0)
+	if (ft_issorted(stack_a))
 		exit(EXIT_SUCCESS);
 	i = ft_lstsize(stack_a);
-	if (i < 6)
-		ft_sort2(&stack_a);
+	ft_minisort(&stack_a, &stack_b, i);
 	ft_print(stack_a);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:41:06 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/17 18:04:47 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,51 +48,54 @@ void	ft_print(t_list *stack)
 	}
 }
 
-int	ft_issorted(t_list **stack)
+int	ft_issorted(t_list *stack)
 {
 	int		size;
 	t_list	*temp;
 
-	temp = (*stack)->next;
+	temp = stack;
 	size = ft_lstsize(temp);
+	if (!stack || !stack->next)
+		return (0);
 	while (temp->next)
 	{
 		if (temp->content > temp->next->content)
-			return (1);
+			return (0);
 		temp = temp->next;
 	}
-	ft_printf("not sorted\n");
-	return (0);
+	return (1);
 }
 
-int	ft_max(t_list **stack)
+int	ft_max(t_list *stack)
 {
 	int	max;
 
-	if (!*stack)
+	max = INT_MIN;
+	if (!stack)
 		return (0);
-	max = (*stack)->content;
-	while (*stack)
+	max = stack->content;
+	while (stack)
 	{
-		if ((*stack)->content > max)
-			max = (*stack)->content;
-		(*stack) = (*stack)->next;
+		if (stack->content > max)
+			max = stack->content;
+		stack = stack->next;
 	}
 	return (max);
 }
 
-int	ft_min(t_list **stack)
+int	ft_min(t_list *stack)
 {
 	int	min;
 
-	if (!*stack)
+	min = INT_MIN;
+	if (!stack)
 		return (0);
-	min = (*stack)->content;
-	while (*stack)
+	min = stack->content;
+	while (stack)
 	{
-		if ((*stack)->content > min)
-			min = (*stack)->content;
-		(*stack) = (*stack)->next;
+		if (stack->content > min)
+			min = stack->content;
+		stack = stack->next;
 	}
 	return (min);
 }
