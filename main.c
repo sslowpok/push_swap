@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 18:04:24 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/17 18:10:01 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	main(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	ft_init_stacks(stack_a, stack_b);
+	// нужно защищать маллок
+	//ft_init_stacks(stack_a, stack_b);
 	ft_validation(argc, argv);
 	while (i < argc)
 		ft_stack_fill(argv[i++], &stack_a);
