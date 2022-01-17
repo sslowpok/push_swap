@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 18:10:01 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/17 20:33:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ int	main(int argc, char **argv)
 	if (ft_issorted(stack_a))
 		exit(EXIT_SUCCESS);
 	i = ft_lstsize(stack_a);
-	ft_minisort(&stack_a, &stack_b, i);
-	ft_print(stack_a);
+	if (i < 6)
+		ft_minisort(&stack_a, &stack_b, i);
+	else
+		ft_long_sort(&stack_a, &stack_b);
+	//ft_print(stack_a);
+	if (stack_a)
+		ft_lstclear(&stack_a, del);
 	return (0);
 }

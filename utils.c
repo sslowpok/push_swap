@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 18:04:47 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/17 20:30:03 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,9 @@ int	ft_min(t_list *stack)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+void	del(int content)
+{
+	content = 0;
 }

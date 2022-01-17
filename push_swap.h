@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 17:59:16 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/17 20:30:16 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ int				ft_issorted(t_list *stack);
 int				ft_max(t_list *stack);
 int				ft_min(t_list *stack);
 void			ft_minisort(t_list **stack_a, t_list **stack_b, int size);
+int				ft_make_sort_arr(t_list *stack);
+void			ft_long_sort(t_list **stack_a, t_list **stack_b);
+void			del(int content);
 
 #endif
