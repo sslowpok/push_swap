@@ -14,7 +14,8 @@ SRCS =	main.c \
 		reverse_rotate.c \
 		mini_sort.c \
 		long_sort_utils.c \
-		long_sort.c
+		long_sort.c \
+		split_arg.c
 
 LD_FLAGS =	-L libft -L printf
 

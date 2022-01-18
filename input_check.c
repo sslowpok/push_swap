@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:03:37 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:19:58 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:26:29 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,43 @@
 
 void	ft_error(void)
 {
-	ft_printf("Error. Stop\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
-static void	ft_check_arg(char *str)
+void	ft_stack_fill(char *str, t_list **stack)
+{
+	t_list	*temp;
+	
+	if (!stack)
+		*stack = ft_lstnew(ft_atoi(str));
+	else
+	{
+		temp = ft_lstnew(ft_atoi(str));
+		ft_lstadd_back(stack, temp);
+	}
+}
+
+int	ft_check_arg(char *str)
 {
 	long long int	i;
 	long long int	temp;
 
 	if (!*str)
-		ft_error();
+		return (1);
 	i = 0;
 	while (*(str + i))
 	{
 		if (!ft_isdigit(*(str + i)) && *(str + i) != '-')
-			ft_error();
+			return (1);
 		i++;
 	}
 	temp = ft_atoi_long(str);
-	if (temp < INT_MIN || temp > INT_MAX)
-		ft_error();
+	if (temp == 0)
+		return (1);
+	else if (temp < INT_MIN || temp > INT_MAX)
+		return (1);	
+	return (0);
 }
 
 static void	ft_check_duplication(int argc, char **argv)
@@ -56,27 +72,25 @@ static void	ft_check_duplication(int argc, char **argv)
 	}
 }
 
-void	ft_validation(int argc, char **argv)
+void	ft_validation(int argc, char **argv, t_list **stack_a)
 {
-	int	i;
+	int		i;
 
-	if (argc < 2)
+	if (argc < 3)
+	{
 		ft_error();
-	i = 1;
-	while (i < argc)
-		ft_check_arg(argv[i++]);
-	ft_check_duplication(argc, argv);
-}
-
-void	ft_stack_fill(char *str, t_list **stack)
-{
-	t_list	*temp;
-	
-	if (!stack)
-		*stack = ft_lstnew(ft_atoi(str));
+	}
 	else
 	{
-		temp = ft_lstnew(ft_atoi(str));
-		ft_lstadd_back(stack, temp);
+		i = 1;
+		while (i < argc)
+		{
+			if (ft_check_arg(argv[i++]) == 1)
+				ft_error();
+		}
+		ft_check_duplication(argc, argv);
+		i = 1;
+		while (i < argc)
+			ft_stack_fill(argv[i++], stack_a);
 	}
 }

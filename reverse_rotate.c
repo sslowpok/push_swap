@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:55:58 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 17:10:13 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:45:55 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_rrb(t_list **stack_b, int flag)
 	i = 0;
 	while (i < size)
 	{
-		ft_ra(stack_b, 0);
+		ft_rb(stack_b, 0);
 		i++;
 	}
 	if (flag)

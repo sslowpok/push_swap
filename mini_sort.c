@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:26:17 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 18:04:07 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/18 14:53:29 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	ft_sort45(t_list **stack_a, t_list **stack_b, int size)
 	ft_ra(stack_a, 1);
 	if (size == 5)
 		ft_pa(stack_a, stack_b);
+	if (!ft_issorted(*stack_a))
+		ft_ra(stack_a, 1);
 }
 
 void	ft_minisort(t_list **stack_a, t_list **stack_b, int size)

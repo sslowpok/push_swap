@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 20:30:03 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/18 18:05:02 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ long long int	ft_atoi_long(const char	*nptr)
 		res = res * 10 + (*(str + i) - 48);
 		i++;
 	}
+	if (*(str + i))
+		return (0);
 	return (res * sign);
 }
 
