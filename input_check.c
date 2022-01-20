@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:03:37 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/18 18:26:29 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:30:09 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_check_arg(char *str)
 		i++;
 	}
 	temp = ft_atoi_long(str);
-	if (temp == 0)
+	if (temp == 0 && !ft_isdigit(*str))
 		return (1);
 	else if (temp < INT_MIN || temp > INT_MAX)
 		return (1);	
@@ -76,10 +76,10 @@ void	ft_validation(int argc, char **argv, t_list **stack_a)
 {
 	int		i;
 
-	if (argc < 3)
-	{
+	if (argc == 1)
+		exit (EXIT_SUCCESS);
+	else if (argc < 3)
 		ft_error();
-	}
 	else
 	{
 		i = 1;

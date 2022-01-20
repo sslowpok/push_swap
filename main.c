@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/18 18:46:32 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:32:27 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	int		i;
 
+	if (argc == 2 && !ft_check_arg(argv[1]))
+		return (0);
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
@@ -49,6 +51,7 @@ int	main(int argc, char **argv)
 	// ft_print(stack_a);
 	if (stack_a)
 		ft_lstclear(&stack_a, del);
+	
 	if (stack_b)
 		free(stack_b);
 	return (0);
