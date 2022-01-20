@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:03:37 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 14:30:09 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:45:51 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,10 @@ void	ft_error(void)
 
 void	ft_stack_fill(char *str, t_list **stack)
 {
-	t_list	*temp;
-	
-	if (!stack)
+	if (!*stack)
 		*stack = ft_lstnew(ft_atoi(str));
 	else
-	{
-		temp = ft_lstnew(ft_atoi(str));
-		ft_lstadd_back(stack, temp);
-	}
+		ft_lstadd_back(stack, ft_lstnew(ft_atoi(str)));
 }
 
 int	ft_check_arg(char *str)
@@ -49,7 +44,7 @@ int	ft_check_arg(char *str)
 	if (temp == 0 && !ft_isdigit(*str))
 		return (1);
 	else if (temp < INT_MIN || temp > INT_MAX)
-		return (1);	
+		return (1);
 	return (0);
 }
 
@@ -78,8 +73,11 @@ void	ft_validation(int argc, char **argv, t_list **stack_a)
 
 	if (argc == 1)
 		exit (EXIT_SUCCESS);
-	else if (argc < 3)
-		ft_error();
+	else if (argc == 2)
+	{
+		ft_check_split_arg(argv[1], stack_a);
+		return ;
+	}
 	else
 	{
 		i = 1;

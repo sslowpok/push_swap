@@ -6,11 +6,11 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/18 16:33:50 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:45:39 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
@@ -45,4 +45,5 @@ void			ft_long_sort(t_list **stack_a, t_list **stack_b);
 void			del(int content);
 void			ft_check_split_arg(char *arg, t_list **a);
 int				ft_check_arg(char *str);
+
 #endif

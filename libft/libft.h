@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:51:33 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/15 16:11:10 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:16:29 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(int));
 void	ft_lstclear(t_list **lst, void (*del)(int));
 void	ft_lstiter(t_list *lst, void (*f)(int));
-t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int));
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 
 #endif

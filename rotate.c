@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:29:05 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 13:49:25 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:56:13 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_ra(t_list **stack_a, int flag)
 	ft_lstlast(tmp)->content = temp;
 	if (flag)
 		ft_putendl_fd("ra", 1);
-	// 	// ------------
-	// ft_printf("a:\n");
-	// ft_print(*stack_a);
 }
 
 void	ft_rb(t_list **stack_b, int flag)
@@ -51,9 +48,6 @@ void	ft_rb(t_list **stack_b, int flag)
 	ft_lstlast(tmp)->content = temp;
 	if (flag)
 		ft_putendl_fd("rb", 1);
-	// 	// ------------
-	// ft_printf("b:\n");
-	// ft_print(*stack_b);
 }
 
 void	ft_rr(t_list **stack_a, t_list **stack_b)

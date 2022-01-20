@@ -6,13 +6,13 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:26:17 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/18 14:53:29 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:44:39 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort3(t_list **stack_a)
+static void	ft_sort3(t_list **stack_a)
 {
 	int	max;
 	int	min;
@@ -31,7 +31,7 @@ void	ft_sort3(t_list **stack_a)
 	}
 }
 
-static void	search(t_list	**lst, int (*f)(t_list *))
+static void	ft_search(t_list	**lst, int (*f)(t_list *))
 {
 	while ((*lst)->content != f(*lst))
 	{
@@ -43,14 +43,14 @@ static void	search(t_list	**lst, int (*f)(t_list *))
 	}
 }
 
-void	ft_sort45(t_list **stack_a, t_list **stack_b, int size)
+static void	ft_sort45(t_list **stack_a, t_list **stack_b, int size)
 {
 	if (size == 5)
 	{
-		search(stack_a, ft_min);
+		ft_search(stack_a, ft_min);
 		ft_pb(stack_a, stack_b);
 	}
-	search(stack_a, ft_max);
+	ft_search(stack_a, ft_max);
 	ft_pb(stack_a, stack_b);
 	while (ft_lstsize(*stack_a) != 3)
 		ft_pb(stack_a, stack_b);

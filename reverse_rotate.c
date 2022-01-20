@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:55:58 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 13:49:17 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:55:55 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ void	ft_rra(t_list **stack_a, int flag)
 	}
 	if (flag)
 		ft_putendl_fd("rra", 1);
-	// 	// ------------
-	// ft_printf("a:\n");
-	// ft_print(*stack_a);
 }
 
 void	ft_rrb(t_list **stack_b, int flag)
@@ -53,9 +50,6 @@ void	ft_rrb(t_list **stack_b, int flag)
 	}
 	if (flag)
 		ft_putendl_fd("rrb", 1);
-	// 	// ------------
-	// ft_printf("a:\n");
-	// ft_print(*stack_b);
 }
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)

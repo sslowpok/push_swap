@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   long_sort_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 19:47:39 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/17 20:01:01 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/20 17:16:56 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_make_sort_arr(t_list *stack)
 	int	*arr;
 	int	size;
 	int	i;
-	
+
 	size = ft_lstsize(stack);
 	i = 0;
 	arr = (int *)ft_calloc(size, sizeof(int));

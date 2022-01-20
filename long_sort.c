@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 19:53:44 by alex              #+#    #+#             */
-/*   Updated: 2022/01/18 15:50:37 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:54:53 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,15 @@ static void	ft_push_to_b(t_list **stack_a, t_list **stack_b)
 	{
 		half = ft_lstsize(*stack_a) / 2;
 		mean = ft_make_sort_arr(*stack_a);
-		// if ((*stack_a)->content > (*stack_a)->next->content)
-		// 	ft_sa(stack_a, 1);
 		while (half > 0)
 		{
 			if ((*stack_a)->content < mean)
 			{
 				ft_pb(stack_a, stack_b);
 				half--;
-				// if ((*stack_a)->content > (*stack_a)->next->content)
-				// 	ft_sa(stack_a, 1);
 			}
 			else
-			ft_ra(stack_a, 1);
+				ft_ra(stack_a, 1);
 		}
 	}
 	if (!ft_issorted(*stack_a))
@@ -64,8 +60,6 @@ static void	ft_push_to_a(t_list **stack_a, t_list **stack_b)
 				ft_rrb(stack_b, 1);
 		ft_pa(stack_a, stack_b);
 	}
-	//if (stack_b)
-		//free(stack_b);
 }
 
 void	ft_long_sort(t_list **stack_a, t_list **stack_b)
