@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 17:45:39 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/20 19:38:40 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include "printf/ft_printf.h"
 
 # include <unistd.h>
 # include <stdlib.h>

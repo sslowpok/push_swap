@@ -17,33 +17,34 @@ SRCS =	main.c \
 		long_sort.c \
 		split_arg.c
 
-LD_FLAGS =	-L libft -L printf
+LD_FLAGS =	-L libft
 
 OBJS =	$(SRCS:.c=.o)
 
-INC =	push_swap.h ./libft/libft.h ./printf/ft_printf.h
+INC =	push_swap.h ./libft/libft.h
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re makelib
 
-all: $(NAME)
+all: makelib $(NAME) 
 
-$(NAME): $(OBJS) ./libft/*.c ./printf/*.c
-			@make -C ./libft
-			@make bonus -C ./libft
-			@make -C ./printf
-			@$(CC) $(CFLAGS) $(OBJS) $(LD_FLAGS) ./libft/libft.a ./printf/libftprintf.a -o $(NAME)
+makelib:	
+		@make -C ./libft
+		@make bonus -C ./libft
 
-%.o:	%.c */*.h push_swap.h
+$(NAME): $(OBJS)
+			@$(CC) $(CFLAGS) $(OBJS) $(LD_FLAGS) ./libft/libft.a -o $(NAME)
+
+%.o:	%.c push_swap.h libft/libft.h
 		$(CC) $(CFLAGS)  -c $< -o $@
+
+
 
 clean:	
 		$(RM) $(OBJS)
 		@make clean -C libft/
-		@make clean -C printf/
 	
 fclean:	clean
 		$(RM) $(NAME)
 		@make fclean -C libft/
-		@make fclean -C printf/
 
 re:		fclean all

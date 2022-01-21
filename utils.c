@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 17:17:10 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/21 15:54:15 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	ft_print(t_list *stack)
 {
 	while (stack)
 	{
-		ft_printf("%d\n", stack->content);
+		ft_putnbr_fd(stack->content, 1);
+		ft_putchar_fd('\n', 1);
 		stack = stack->next;
 	}
 }

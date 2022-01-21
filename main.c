@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 17:15:22 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/21 15:54:39 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 		ft_minisort(&stack_a, &stack_b, i);
 	else
 		ft_long_sort(&stack_a, &stack_b);
+	// ft_print(stack_a);
 	if (stack_a)
 		ft_lstclear(&stack_a, del);
 	if (stack_b)
