@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 15:24:56 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/21 15:54:15 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/23 14:13:34 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ int	ft_min(t_list *stack)
 {
 	int	min;
 
-	min = INT_MIN;
 	if (!stack)
 		return (0);
 	min = stack->content;
+	stack = stack->next;
 	while (stack)
 	{
-		if (stack->content > min)
+		if (stack->content < min)
 			min = stack->content;
 		stack = stack->next;
 	}

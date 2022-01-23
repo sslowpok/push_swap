@@ -6,13 +6,13 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:26:17 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/21 15:55:39 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/23 14:03:17 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_sort3(t_list **stack_a)
+void	ft_sort3(t_list **stack_a)
 {
 	int	max;
 	int	min;

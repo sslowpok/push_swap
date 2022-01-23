@@ -6,11 +6,12 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 19:47:39 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 17:16:56 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/23 13:36:54 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static int	ft_sort_arr_mean(int *arr, int size)
 {

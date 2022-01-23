@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 19:38:40 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/23 14:08:47 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 
 long long int	ft_atoi_long(const char	*nptr);
 void			ft_validation(int argc, char **argv, t_list **stack_a);
@@ -44,5 +45,6 @@ void			ft_long_sort(t_list **stack_a, t_list **stack_b);
 void			del(int content);
 void			ft_check_split_arg(char *arg, t_list **a);
 int				ft_check_arg(char *str);
+void			ft_sort3(t_list **stack_a);
 
 #endif
