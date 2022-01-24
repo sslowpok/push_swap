@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:58:59 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/23 18:36:27 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:43:17 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int	main(int argc, char **argv)
 	if (i < 6)
 		ft_minisort(&stack_a, &stack_b, i);
 	else
-		ft_long_sort(&stack_a, &stack_b);
-	// ft_print(stack_a);
+		new_ft_long_sort(&stack_a, &stack_b);
+	//printf("\na:\n");	
+	//ft_print(stack_a);
 	if (stack_a)
 		ft_lstclear(&stack_a, del);
 	if (stack_b)
