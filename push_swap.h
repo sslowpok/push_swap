@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/24 19:08:52 by alex             ###   ########.fr       */
+/*   Updated: 2022/01/25 16:24:25 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void			ft_sort3(t_list **stack_a);
 
 
 
-void	new_ft_long_sort(t_list **stack_a, t_list **stack_b);
-
+void	ft_new_long_sort(t_list **a, t_list **b);
 
 #endif

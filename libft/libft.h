@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:51:33 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/25 13:57:08 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:59:11 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_list
 {
 	int				content;
-	int				flag;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 

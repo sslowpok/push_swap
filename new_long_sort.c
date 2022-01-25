@@ -6,119 +6,193 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:30:52 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/25 13:53:44 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:04:02 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static int	ft_max_chunk(t_list **stack, int chunk)
-// {
-// 	int	i;
-// 	int	max;
-// 	t_list	*temp;
-
-// 	temp = *stack;
-// 	max = temp->content;
-// 	i = 0;
-// 	while (i < chunk)
-// 	{
-// 		if (temp->content > max)
-// 			max = temp->content;
-// 		temp = temp->next;
-// 		i++;
-// 	}
-// 	return (max);
-// }
-
-// static void	ft_midpoint_1(t_list **stack_a, t_list **stack_b)
-// {
-// 	int	mean;
-// 	int	count;
-// 	int	i;
-
-// 	mean = ft_make_sort_arr(*stack_a);
-// 	count = ft_lstsize(*stack_a) / 2;
-// 	i = 0;
-// 	while (i < count)
-// 	{
-// 		if ((*stack_a)->content < mean)
-// 		{
-// 			ft_pb(stack_a, stack_b);
-// 			i++;
-// 		}
-// 		else
-// 			ft_ra(stack_a, 1);
-// 	}
-	
-// }
-
-/*
-**	pb all <= mean, else ra
-*/
-static void	ft_first_push_b(t_list **stack_a, t_list **stack_b)
+static int	*ft_sort_int_arr(int *arr, int size)
 {
-	int	mean;
-	int	size_a;
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (arr);
+}
+
+static int	*ft_make_int_arr(t_list *stack)
+{
+	int	*arr;
+	int	i;
+	int	size;
+
+	i = 0;
+	size = ft_lstsize(stack);
+	arr = (int *)malloc(sizeof(int) * size);
+	if (!arr)
+		ft_error();
+	while (stack && i < size)
+	{
+		arr[i++] = stack->content;
+		stack = stack->next;
+	}
+	return (arr);
+}
+
+static int	*ft_sort_arr(t_list *stack)
+{
+	int	size;
+	int	i;
+	int	*arr;
+
+	i = 0;
+	size = ft_lstsize(stack);
+	arr = ft_make_int_arr(stack);
+	return (ft_sort_int_arr(arr, size));
+}
+
+static int	ft_find_index(int not_sorted, int *sorted)
+{
 	int	i;
 
 	i = 0;
-	size_a = ft_lstsize(*stack_a);
-	mean = ft_make_sort_arr(*stack_a);
-	while (i < size_a)
-	{
-		if ((*stack_a)->content <= mean)
-			ft_pb(stack_a, stack_b);
-		else
-			ft_ra(stack_a, 1);
+	while (sorted[i] != not_sorted)
 		i++;
-	}
+	return (i);
+}
 
-	printf("\na after push to b:\n");
-	ft_print(*stack_a);
-	
-	printf("\nb after push to b:\n");
-	ft_print(*stack_b);
-//  ---------------------
+static void	ft_index(t_list **stack)
+{
+	t_list	*temp;
+	int		*arr_sorted;
+	int		*arr_notsorted;
+	int		i;
 
-	int	max;
-	int	size_b;
-
-	max = mean;
-	mean = ft_make_sort_arr(*stack_b);
-	size_b = ft_lstsize(*stack_b);
+	arr_notsorted = ft_make_int_arr(*stack);
+	arr_sorted = ft_sort_arr(*stack);
+	temp = *stack;
 	i = 0;
-	while (i < size_b)
+	while (temp)
 	{
-		if ((*stack_b)->content >= mean)
-			ft_pa(stack_a, stack_b);
-		else
-			ft_rb(stack_b, 1);
+		temp->index = ft_find_index(arr_notsorted[i], arr_sorted);
+		temp = temp->next;
 		i++;
 	}
-
-
-
 }
 
 
+// static int ft_min_index(t_list **stack)
+// {
+// 	int	i;
+// 	t_list	*temp;
 
+// 	i = 0;
+// 	temp = *stack;
+// 	i = temp->index;
+// 	while (temp)
+// 	{
+// 		if (i > temp->index)
+// 			i = temp->index;
+// 		temp = temp->next;
+// 	}
+// 	return (i);
+// }
 
-
-void	new_ft_long_sort(t_list **stack_a, t_list **stack_b)
+static int ft_max_index(t_list **stack)
 {
+	int	i;
+	t_list	*temp;
 
-	
-	ft_first_push_b(stack_a, stack_b);
-	// ft_push_b(stack_a, stack_b);
-	// if (!ft_issorted(*stack_a))
-	// 	ft_sort3(stack_a);
+	i = 0;
+	temp = *stack;
+	i = temp->index;
+	while (temp)
+	{
+		if (i < temp->index)
+			i = temp->index;
+		temp = temp->next;
+	}
+	return (i);
+}
 
-	printf("\na after push to b:\n");
-	ft_print(*stack_a);
-	
-	printf("\nb after push to b:\n");
-	ft_print(*stack_b);
+static void	ft_sort_pa(t_list **a, t_list **b)
+{
+	while ((*b) != NULL)
+	{
+		printf("elem = %d, index = %d\n", (*b)->content, (*b)->index);
+		if (!b)
+			break;
+		if ((*b)->index != ft_max_index(b))
+		{
+			printf("index = %d, size/2 = %d\n", (*b)->index, ft_lstsize(*b)/2);
+			if ((*b)->index < ft_lstsize(*b) / 2)
+					ft_rb(b, 1);
+			else if ((*b)->index > ft_lstsize(*b) / 2)
+					ft_rrb(b, 1);
+		}
+		else if ((*b)->index == ft_max_index(b))
+			ft_pa(a, b);
+	}
+}
 
-	// printf("max in chunk 1 = %d\n", ft_max_chunk(stack_b, 3));
+static void	ft_sort_100(t_list **a, t_list **b)
+{
+	int	l;
+
+	ft_index(a);
+	l = 0;
+	while ((*a) != NULL)
+	{
+		if (l > 1 && (*a)->index <= l)
+		{
+			ft_pb(a, b);
+			l++;
+			ft_rb(b, 1);
+		}
+		else if ((*a)->index <= l + 15)
+		{
+			ft_pb(a, b);
+			l++;
+		}
+		else if ((*a)->index >= l)
+			ft_ra(a, 1);
+	}
+	// while ((*b))
+	// {
+	// 	printf("elem = %d, index = %d\n", (*b)->content, (*b)->index);
+	// 	(*b) = (*b)->next;
+	// }
+	ft_sort_pa(a, b);
+}
+
+
+void	ft_new_long_sort(t_list **a, t_list **b)
+{
+	int	size;
+
+	size = ft_lstsize(*a);
+	if (size <= 100)
+		ft_sort_100(a, b);
+
+	printf("\na after sort100:\n");
+	ft_print(*a);
+	printf("\nb after sort100:\n");
+	ft_print(*b);
 }

@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:29:05 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 16:56:13 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:06:39 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ void	ft_ra(t_list **stack_a, int flag)
 {
 	t_list	*tmp;
 	int		temp;
+	int		temp_index;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
 	tmp = *stack_a;
 	temp = tmp->content;
+	temp_index = tmp->index;
 	while (tmp->next)
 	{
 		tmp->content = tmp->next->content;
 		tmp = tmp->next;
+		tmp->index = tmp->next->index;
 	}
 	ft_lstlast(tmp)->content = temp;
 	if (flag)
