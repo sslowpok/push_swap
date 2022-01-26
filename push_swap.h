@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/26 16:28:11 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:35:22 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
 
 long long int	ft_atoi_long(const char	*nptr);
 void			ft_validation(int argc, char **argv, t_list **stack_a);
