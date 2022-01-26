@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:21:07 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 16:55:38 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:28:26 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	ft_pa(t_list **stack_a, t_list **stack_b)
 	if (!*stack_b)
 		return ;
 	temp = *stack_b;
-	*stack_b = (*stack_b)->next;
-	ft_lstadd_front(stack_a, temp);
+	*stack_b = temp->next;
+	temp->next = *stack_a;
+	*stack_a = temp;
 	ft_putendl_fd("pa", 1);
 }
 
@@ -31,7 +32,8 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 	if (!*stack_a)
 		return ;
 	temp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	ft_lstadd_front(stack_b, temp);
+	*stack_a = temp->next;
+	temp->next = *stack_b;
+	*stack_b = temp;
 	ft_putendl_fd("pb", 1);
 }

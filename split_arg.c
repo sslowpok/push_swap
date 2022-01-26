@@ -6,15 +6,16 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:25:47 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/20 17:38:15 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:16:35 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	del(int content)
+void	del(int content, int index)
 {
 	content = 0;
+	index = 0;
 }
 
 static void	ft_check_split_duplication(int length, char **split_result)

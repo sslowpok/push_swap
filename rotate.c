@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:29:05 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/25 17:06:39 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:29:33 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,36 @@
 
 void	ft_ra(t_list **stack_a, int flag)
 {
-	t_list	*tmp;
-	int		temp;
-	int		temp_index;
+	t_list	*temp1;
+	t_list	*temp2;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
-	tmp = *stack_a;
-	temp = tmp->content;
-	temp_index = tmp->index;
-	while (tmp->next)
-	{
-		tmp->content = tmp->next->content;
-		tmp = tmp->next;
-		tmp->index = tmp->next->index;
-	}
-	ft_lstlast(tmp)->content = temp;
+	temp1 = *stack_a;
+	temp2 = *stack_a;
+	*stack_a = (*stack_a)->next;
+	while (temp1->next)
+		temp1 = temp1->next;
+	temp1->next = temp2;
+	temp1->next->next = NULL;
 	if (flag)
 		ft_putendl_fd("ra", 1);
 }
 
 void	ft_rb(t_list **stack_b, int flag)
 {
-	t_list	*tmp;
-	int		temp;
+	t_list	*temp1;
+	t_list	*temp2;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
-	tmp = *stack_b;
-	temp = tmp->content;
-	while (tmp->next)
-	{
-		tmp->content = tmp->next->content;
-		tmp = tmp->next;
-	}
-	ft_lstlast(tmp)->content = temp;
+	temp1 = *stack_b;
+	temp2 = *stack_b;
+	*stack_b = (*stack_b)->next;
+	while (temp1->next)
+		temp1 = temp1->next;
+	temp1->next = temp2;
+	temp1->next->next = NULL;
 	if (flag)
 		ft_putendl_fd("rb", 1);
 }

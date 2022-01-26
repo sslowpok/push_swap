@@ -6,7 +6,7 @@
 /*   By: sslowpok <sslowpok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:59:11 by sslowpok          #+#    #+#             */
-/*   Updated: 2022/01/25 16:24:25 by sslowpok         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:28:11 by sslowpok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ int				ft_min(t_list *stack);
 void			ft_minisort(t_list **stack_a, t_list **stack_b, int size);
 int				ft_make_sort_arr(t_list *stack);
 void			ft_long_sort(t_list **stack_a, t_list **stack_b);
-void			del(int content);
+void			del(int content, int index);
 void			ft_check_split_arg(char *arg, t_list **a);
 int				ft_check_arg(char *str);
 void			ft_sort3(t_list **stack_a);
 
+int				*ft_sort_int_arr(int *arr, int size);
+int				*ft_make_index_arr(t_list *b, int *num);
+int				ft_compare_positions(t_list **a, int med, int pos);
 
-
-void	ft_new_long_sort(t_list **a, t_list **b);
+int				*ft_make_int_arr(t_list *stack);
+int				*ft_sort_arr(t_list *stack);
+int				ft_find_index(int not_sorted, int *sorted);
+void			ft_index(t_list **stack);
+int				ft_max_index(t_list **stack);
+void			ft_new_long_sort(t_list **a, t_list **b);
 
 #endif

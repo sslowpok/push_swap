@@ -14,9 +14,10 @@ SRCS =	main.c \
 		reverse_rotate.c \
 		mini_sort.c \
 		long_sort_utils.c \
-		long_sort.c \
 		split_arg.c \
-		new_long_sort.c
+		new_long_sort.c \
+		new_sort_utils.c \
+		new_sort_utils_2.c
 
 LD_FLAGS =	-L libft
 
@@ -37,8 +38,6 @@ $(NAME): $(OBJS)
 
 %.o:	%.c push_swap.h libft/libft.h
 		$(CC) $(CFLAGS)  -c $< -o $@
-
-
 
 clean:	
 		$(RM) $(OBJS)
